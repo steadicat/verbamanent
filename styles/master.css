@@ -11,7 +11,8 @@ a {
     font-size: 11px; }
 
 .comments {
-  font-size: 13px; }
+  font-size: 13px;
+  list-style-type: none; }
 
 html {
   border-top: 40px solid #fc6; }
