@@ -25,18 +25,17 @@ function loadPosts(start) {
         $.each(json.rows, function(i, row) {
             var post = row.value;
             lastLoaded = row.key;
-            console.log(lastLoaded);
+
             var el = $('.post.template').use();
             el
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
-            .find('.username:first').text(post.user).attr('href', 'user/#' + post.user).end()
+            .find('.username:first').text(post.user).attr('href', 'user.html#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end()
             .find('.date:first').text(getDate(post.date)).end();
             if (post.comments.length) {
                 el.find('.commentLink:first').text(post.comments.length + ' commenti').attr('href','#post-'+post._id);
             }
-            console.log(post);
             $.each(post.comments, function(i, comment) {
                 el
                 .find('.comment.template').use()

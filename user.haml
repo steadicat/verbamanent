@@ -1,0 +1,21 @@
+-#! haml -f html5 user.haml > user.html.tmp && mv user.html.tmp user.html
+!!! Strict
+%html
+  %head
+    %link( rel="stylesheet" type="text/css" href="styles/master.css" )
+    %link( rel="icon" type="image/png" href="images/favicon.png" )
+    %meta( http-equiv="X-UA-Compatible" content="chrome=1" )
+
+    %title Verbamanent: Archivi
+
+  %body
+
+    .user.template
+      %h3.username
+
+      .profile.template
+        .key
+        .value
+
+    %script( type="text/javascript" src="scripts/jquery.js" )
+    %script( type="text/javascript" src="scripts/user.js" )
