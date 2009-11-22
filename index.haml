@@ -15,22 +15,24 @@
 
       .info
         scritto da
-        %span.username
+        %a.username
         alle
         %span.time
         del
-        %span.day
+        %span.date
+        |
+        %a.commentLink Nessun commento
 
-      %ul.comments
+      %ul.comments.off
         %li.comment.template
           %p.body
           .info
             scritto da
-            %span.username
+            %a.username
             alle
             %span.time
             del
-            %span.day
+            %span.date
 
     %script( type="text/javascript" src="scripts/jquery.js" )
     %script( type="text/javascript" src="scripts/master.js" )

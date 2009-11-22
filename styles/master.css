@@ -1,4 +1,4 @@
-.template {
+.template, .off {
   display: none; }
 
 .info {
@@ -7,3 +7,6 @@
 
 .comments {
   font-size: small; }
+
+.body {
+  margin-bottom: 0.2em; }
