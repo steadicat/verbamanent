@@ -50,7 +50,7 @@ function loadPosts(start) {
 };
 
 $(window).scroll(function() {
-    if  ($(window).scrollTop()+200 >= $(document).height() - $(window).height()) {
+    if  ($(window).scrollTop()+300 >= $(document).height() - $(window).height()) {
         loadPosts(lastLoaded);
     }
 });
