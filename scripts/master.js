@@ -1,4 +1,4 @@
-var db = 'http://verbamanent.cloudant.com:5984/main/';
+var db = 'http://verbamanent.cloudant.com:5984/';
 var allPosts = '_design/ordered/_view/date?callback=?&limit=20';
 
 $.prototype.use = function() {
@@ -18,10 +18,10 @@ $('.commentLink').live('click', function() {
 var lastLoaded = null;
 var alreadyLoaded = {};
 
-function loadPosts(start) {
+function loadPosts(type, start) {
     if (start && alreadyLoaded[start]) return;
     alreadyLoaded[start] = true;
-    $.getJSON(db + allPosts + (start? '&startkey=\"'+start+'%2F"': ''), function(json) {
+    $.getJSON(db + type + '/' + allPosts + (start? '&startkey=\"'+start+'%2F"': ''), function(json) {
         $.each(json.rows, function(i, row) {
             var post = row.value;
             lastLoaded = row.key;
@@ -50,10 +50,10 @@ function loadPosts(start) {
 
 $(window).scroll(function() {
     if  ($(window).scrollTop()+300 >= $(document).height() - $(window).height()) {
-        loadPosts(lastLoaded);
+        loadPosts($(document.body).attr('id'), lastLoaded);
     }
 });
 
 $(function() {
-    loadPosts();
+    loadPosts($(document.body).attr('id'));
 });
