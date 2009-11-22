@@ -30,7 +30,7 @@ function loadPosts(start) {
             el
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
-            .find('.username:first').text(post.user).attr('href', '/user/#' + post.user).end()
+            .find('.username:first').text(post.user).attr('href', 'user/#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end()
             .find('.date:first').text(getDate(post.date)).end();
             if (post.comments.length) {
