@@ -21,7 +21,7 @@ $(function() {
         .find('.key').text('Email').end().find('.value').text(user.email);
         el.find('.profile.template').use()
         .find('.key').text('Url').end().find('.value').text(user.url);
-        $.each(user.profile, function(key, val) {
+        if (user.profile) $.each(user.profile, function(key, val) {
             el.find('.profile.template').use()
             .find('.key').text(key).end().find('.value').html(val);
         });

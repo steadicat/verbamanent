@@ -40,7 +40,7 @@ function loadPosts(start) {
                 el
                 .find('.comment.template').use()
                 .find('.body:first').html(comment.body).end()
-                .find('.username:first').text(comment.user).attr('href', '/user/#' + comment.user).end()
+                .find('.username:first').text(comment.user).attr('href', 'user.html#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
                 .find('.date:first').text(getDate(comment.date));
             });
