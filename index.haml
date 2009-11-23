@@ -10,32 +10,42 @@
 
   %body#main
 
-    .post.template
-      %p.body
+    %h1.header Verbamanent
 
-      .info
-        scritto da
-        %a.username
-        alle
-        %span.time
-        del
-        %span.date
-        &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-        %a.commentLink Nessun commento
+    .meta
+      %a home
+      %a( href="info.html" ) info
+      %a( href="scriptavolant.html" ) scriptavolant
 
-      %ul.comments.off
-        %li.comment.template
-          %p.body
-          .info
-            scritto da
-            %a.username
-            alle
-            %span.time
-            del
-            %span.date
+    #home
+      .post.template
+        .date.pullout
 
-    %h3.loading
-      Loading...
+        %p.body
+
+        .info
+          scritto da
+          %a.username
+          alle
+          %span.time
+          &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+          %a.commentLink Nessun commento
+          &nbsp;&nbsp;&raquo;
+
+        %ul.comments.off
+          %li.comment.template
+            %p.body
+            .info
+              scritto da
+              %a.username
+              alle
+              %span.time
+              del
+              %span.date
+
+      %h3.loading
+        Loading...
+
 
     %script( type="text/javascript" src="scripts/jquery.js" )
     %script( type="text/javascript" src="scripts/master.js" )

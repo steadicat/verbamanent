@@ -5,11 +5,14 @@ $.prototype.use = function() {
     return this.clone().removeClass('template').insertBefore(this);
 };
 
+var months = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+
 function getTime(date) {
     return date.split(' ')[1];
 }
 function getDate(date) {
-    return date.split(' ')[0];
+    var bits = date.split(' ')[0].split('-');
+    return bits[2] + ' ' + months[parseInt(bits[1]-1)] + ' ' + bits[0];
 }
 $('.commentLink').live('click', function() {
     $(this).parents('.post').find('.comments').toggleClass('off');

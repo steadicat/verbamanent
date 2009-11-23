@@ -1,41 +1,61 @@
 body {
   font: 14px/22px georgia, serif; }
 
-a {
+a, strong, em {
   font: bold 13px/22px helvetica, arial, sans-serif;
   text-decoration: none; }
 
-.user {
+.user, h2 {
   font: 13px/22px helvetica, arial, sans-serif; }
 
-.info {
+.info, .meta, .pullout, .copyright {
   font: 11px/22px helvetica, arial, sans-serif; }
-  .info a {
+  .info a, .meta a, .pullout a, .copyright a {
     font-size: 11px; }
 
 .comments {
   font-size: 13px;
   list-style-type: none; }
 
-html {
-  border-top: 40px solid #fc6; }
-  html.scriptavolant {
-    border-top: 40px solid #c30; }
+.pullout, h2 {
+  font-weight: bold; }
 
-body {
-  border-top: 2px solid #ccc; }
+.signature {
+  margin: 2em 0;
+  font-style: italic; }
 
-.post {
-  border-left: 2px solid #ccc; }
+h1 {
+  background: #faca85;
+  border-bottom: 1px solid #946524;
+  color: #946524;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 6px;
+  font-size: 16px;
+  padding: 40px 60px 10px; }
+  .scriptavolant h1 {
+    background: #777;
+    color: #faca85;
+    border-bottom: 1px solid #000; }
+
+.post, #info {
+  border-left: 1px solid #999; }
+
+.pullout, h2, .copyright {
+  color: #666; }
 
 a[href] {
-  color: #ff6600; }
+  color: #cc6622; }
   a[href]:visited {
-    color: #cc3300; }
+    color: #883322; }
   a[href]:hover {
-    color: #ff8822; }
+    color: #ee8844; }
   a[href]:active {
-    color: #999; }
+    color: #f93; }
+
+.meta a[href] {
+  color: #336; }
 
 .info {
   color: #666; }
@@ -50,12 +70,33 @@ html, body {
   margin: 0;
   padding: 0; }
 
+h2, p {
+  margin: 0; }
+
+h2 {
+  margin-top: 2em; }
+
+p+p {
+  text-indent: 22px; }
+  .copyright p+p, p+p.signature {
+    text-indent: 0; }
+
 .body {
   margin-bottom: 0.2em; }
 
-.post {
+.meta {
+  margin-left: 60px; }
+
+.meta a {
+  margin-right: 22px; }
+
+.post, #info {
   padding: 0 2em;
-  margin: 2em 10em; }
+  margin: 2em 10em 2em 20em; }
+
+.pullout {
+  position: absolute;
+  left: 60px; }
 
 .loading {
   margin: 6em 0;

@@ -7,35 +7,43 @@
     <title>Verbamanent: Archivi</title>
   </head>
   <body id='main'>
-    <div class='post template'>
-      <p class='body'></p>
-      <div class='info'>
-        scritto da
-        <a class='username'></a>
-        alle
-        <span class='time'></span>
-        del
-        <span class='date'></span>
-        &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-        <a class='commentLink'>Nessun commento</a>
-      </div>
-      <ul class='comments off'>
-        <li class='comment template'>
-          <p class='body'></p>
-          <div class='info'>
-            scritto da
-            <a class='username'></a>
-            alle
-            <span class='time'></span>
-            del
-            <span class='date'></span>
-          </div>
-        </li>
-      </ul>
+    <h1 class='header'>Verbamanent</h1>
+    <div class='meta'>
+      <a>home</a>
+      <a href='info.html'>info</a>
+      <a href='scriptavolant.html'>scriptavolant</a>
     </div>
-    <h3 class='loading'>
-      Loading...
-    </h3>
+    <div id='home'>
+      <div class='post template'>
+        <div class='date pullout'></div>
+        <p class='body'></p>
+        <div class='info'>
+          scritto da
+          <a class='username'></a>
+          alle
+          <span class='time'></span>
+          &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+          <a class='commentLink'>Nessun commento</a>
+          &nbsp;&nbsp;&raquo;
+        </div>
+        <ul class='comments off'>
+          <li class='comment template'>
+            <p class='body'></p>
+            <div class='info'>
+              scritto da
+              <a class='username'></a>
+              alle
+              <span class='time'></span>
+              del
+              <span class='date'></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <h3 class='loading'>
+        Loading...
+      </h3>
+    </div>
     <script src='scripts/jquery.js' type='text/javascript'></script>
     <script src='scripts/master.js' type='text/javascript'></script>
   </body>
