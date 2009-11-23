@@ -39,7 +39,7 @@ var by = [
     'chi poteva scrivere una cosa del genere se non',
     'cacofonia di',
     'marzullata di',
-    'ma che idea strana che è venuta in mente a'
+    'ma che idea strana che &egrave; venuta in mente a'
 ];
 
 function getTime(date) {
