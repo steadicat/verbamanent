@@ -7,12 +7,42 @@ $.prototype.use = function() {
 
 var months = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
 
+var by = [
+    '125 milioni di caz..te di',
+    'cacofonia di',
+    'pillola di saggezza di',
+    'abbattete',
+    'epitaffio di',
+    'bel colpo,',
+    'è tipico di',
+    'è stato qui',
+    'sproloquio scritto da',
+    'cavolata scritta da',
+    'encomio di',
+    'emozione regalata da',
+    'amenità di',
+    'il web aveva certamente bisogno di',
+    'il grave errore è di',
+    'pistolata di',
+    'opera maxima di',
+    'scritto da',
+    'spam da parte di',
+    'guardà un po\' cos\'ha da dire',
+    'viva la sincerità di',
+    'grazie di aver partecipato a',
+    'scoop di',
+    'opera omnia',
+    'il meglio di'
+];
+
 function getTime(date) {
-    return date.split(' ')[1];
+    var bits = date.split(' ')[1].split(':');
+    return bits[0] + ':' + bits[1];
 }
 function getDate(date) {
     var bits = date.split(' ')[0].split('-');
-    return bits[2] + ' ' + months[parseInt(bits[1]-1)] + ' ' + bits[0];
+    var day = bits[2][0] == '0' ? bits[2][1] : bits[2];
+    return day + ' ' + months[parseInt(bits[1]-1)] + ' ' + bits[0];
 }
 $('.commentLink').live('click', function() {
     $(this).parents('.post').find('.comments').toggleClass('off');
@@ -33,6 +63,7 @@ function loadPosts(type, start) {
             el
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
+            .find('.by:first').text(by[Math.floor(Math.random()*by.length)]).end()
             .find('.username:first').text(post.user).attr('href', 'user.html#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end()
             .find('.date:first').text(getDate(post.date)).end();
@@ -43,6 +74,7 @@ function loadPosts(type, start) {
                 el
                 .find('.comment.template').use()
                 .find('.body:first').html(comment.body).end()
+                .find('.by:first').text(by[Math.floor(Math.random()*by.length)]).end()
                 .find('.username:first').text(comment.user).attr('href', 'user.html#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
                 .find('.date:first').text(getDate(comment.date));

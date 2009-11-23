@@ -94,6 +94,9 @@ p+p {
   padding: 0 2em;
   margin: 2em 10em 2em 20em; }
 
+.comment {
+  margin: 0 0 1em 0; }
+
 .pullout {
   position: absolute;
   left: 60px; }
