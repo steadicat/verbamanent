@@ -32,7 +32,14 @@ var by = [
     'grazie di aver partecipato a',
     'scoop di',
     'opera omnia',
-    'il meglio di'
+    'il meglio di',
+    'quello che avreste sempre voluto sapere su',
+    'citazione da',
+    'messaggio da',
+    'chi poteva scrivere una cosa del genere se non',
+    'cacofonia di',
+    'marzullata di',
+    'ma che idea strana che è venuta in mente a'
 ];
 
 function getTime(date) {
