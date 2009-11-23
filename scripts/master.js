@@ -27,7 +27,7 @@ var by = [
     'opera maxima di',
     'scritto da',
     'spam da parte di',
-    'guardà un po&rsquo; cos&rsquo;ha da dire',
+    'guarda un po&rsquo; cos&rsquo;ha da dire',
     'viva la sincerit&agrave; di',
     'grazie di aver partecipato a',
     'scoop di',
