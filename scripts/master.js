@@ -14,21 +14,21 @@ var by = [
     'abbattete',
     'epitaffio di',
     'bel colpo,',
-    'è tipico di',
-    'è stato qui',
+    '&egrave; tipico di',
+    '&egrave; stato qui',
     'sproloquio scritto da',
     'cavolata scritta da',
     'encomio di',
     'emozione regalata da',
-    'amenità di',
+    'amenit&agrave; di',
     'il web aveva certamente bisogno di',
-    'il grave errore è di',
+    'il grave errore &egrave; di',
     'pistolata di',
     'opera maxima di',
     'scritto da',
     'spam da parte di',
-    'guardà un po\' cos\'ha da dire',
-    'viva la sincerità di',
+    'guardà un po&rsquo; cos&rsquo;ha da dire',
+    'viva la sincerit&agrave; di',
     'grazie di aver partecipato a',
     'scoop di',
     'opera omnia',
@@ -70,7 +70,7 @@ function loadPosts(type, start) {
             el
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
-            .find('.by:first').text(by[Math.floor(Math.random()*by.length)]).end()
+            .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
             .find('.username:first').text(post.user).attr('href', 'user.html#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end()
             .find('.date:first').text(getDate(post.date)).end();
@@ -81,7 +81,7 @@ function loadPosts(type, start) {
                 el
                 .find('.comment.template').use()
                 .find('.body:first').html(comment.body).end()
-                .find('.by:first').text(by[Math.floor(Math.random()*by.length)]).end()
+                .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
                 .find('.username:first').text(comment.user).attr('href', 'user.html#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
                 .find('.date:first').text(getDate(comment.date));
