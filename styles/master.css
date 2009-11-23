@@ -1,0 +1,78 @@
+body {
+  font: 14px/22px georgia, serif; }
+
+a {
+  font: bold 13px/22px helvetica, arial, sans-serif;
+  text-decoration: none; }
+
+.user {
+  font: 13px/22px helvetica, arial, sans-serif; }
+
+.info {
+  font: 11px/22px helvetica, arial, sans-serif; }
+  .info a {
+    font-size: 11px; }
+
+.comments {
+  font-size: 13px;
+  list-style-type: none; }
+
+html {
+  border-top: 40px solid #fc6; }
+  html.scriptavolant {
+    border-top: 40px solid #c30; }
+
+body {
+  border-top: 2px solid #ccc; }
+
+.post {
+  border-left: 2px solid #ccc; }
+
+a[href] {
+  color: #ff6600; }
+  a[href]:visited {
+    color: #cc3300; }
+  a[href]:hover {
+    color: #ff8822; }
+  a[href]:active {
+    color: #999; }
+
+.info {
+  color: #666; }
+
+.template, .off {
+  display: none; }
+
+.info {
+  color: gray; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+.body {
+  margin-bottom: 0.2em; }
+
+.post {
+  padding: 0 2em;
+  margin: 2em 10em; }
+
+.loading {
+  margin: 6em 0;
+  text-align: center;
+  color: gray; }
+
+.user {
+  line-height: 30px; }
+  .user h3 {
+    margin-left: 40%;
+    padding-left: 0.8em; }
+
+.key {
+  width: 40%;
+  float: left;
+  text-align: right;
+  margin-right: 1em;
+  font-weight: bold; }
+  .key:after {
+    content: ": "; }
