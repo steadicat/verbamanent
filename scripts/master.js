@@ -102,7 +102,7 @@ function loadPosts(type, start) {
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
             .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
-            .find('.username:first').text(post.user).attr('href', 'user.html#' + post.user).end()
+            .find('.username:first').text(post.user).attr('href', '/user/#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end();
             var date = getDate(post.date);
             if (date != previousDate) {
@@ -117,7 +117,7 @@ function loadPosts(type, start) {
                 .find('.comment.template').use()
                 .find('.body:first').html(comment.body).end()
                 .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
-                .find('.username:first').text(comment.user).attr('href', 'user.html#' + comment.user).end()
+                .find('.username:first').text(comment.user).attr('href', '/user/#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
                 .find('.date:first').html(getDate(comment.date));
             });
