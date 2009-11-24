@@ -5,6 +5,7 @@ $.prototype.use = function() {
     return this.clone().removeClass('template').insertBefore(this);
 };
 
+var days = ['luned&iacute;','marted&iacute;','mercoled&iacute;','gioved&iacute;','venerd&iacute;','sabato','domenica'];
 var months = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
 
 var by = [
@@ -42,14 +43,43 @@ var by = [
     'ma che idea strana che &egrave; venuta in mente a'
 ];
 
+var dst = [
+    [new Date(2000, 3, 26, 1, 0, 0), 2],
+    [new Date(2000, 10, 29, 1, 0, 0), 1],
+    [new Date(2001, 3, 25, 1, 0, 0), 2],
+    [new Date(2001, 10, 28, 1, 0, 0), 1],
+    [new Date(2002, 3, 31, 1, 0, 0), 2],
+    [new Date(2002, 10, 27, 1, 0, 0), 1],
+    [new Date(2003, 3, 30, 1, 0, 0), 2],
+    [new Date(2003, 10, 26, 1, 0, 0), 1]
+];
+function getTimeZoneOffset(date) {
+    var prev = 1;
+    for (var i in dst) {
+        if (date < dst[i][0]) return prev*60*60*1000;
+        prev = dst[i][1];
+    };
+    return prev*60*60*1000;
+}
+function parseDate(date) {
+    var bits = date.split(' ');
+    var date = bits[0].split('-');
+    var time = bits[1].split(':');
+    date[1] = parseInt(date[1])-1;
+    return new Date(Date.UTC.apply(null, date.concat(time)));
+}
+function pad(n) {
+    return n < 10? '0'+n: n;
+}
 function getTime(date) {
-    var bits = date.split(' ')[1].split(':');
-    return bits[0] + ':' + bits[1];
+    var date = parseDate(date);
+    date.setTime(date.getTime() + getTimeZoneOffset(date));
+    return date.getUTCHours() + ':' + pad(date.getUTCMinutes());
 }
 function getDate(date) {
-    var bits = date.split(' ')[0].split('-');
-    var day = bits[2][0] == '0' ? bits[2][1] : bits[2];
-    return day + ' ' + months[parseInt(bits[1]-1)] + ' ' + bits[0];
+    var date = parseDate(date);
+    date.setTime(date.getTime() + getTimeZoneOffset(date));
+    return [days[date.getUTCDay()], date.getUTCDate(), months[date.getUTCMonth()], date.getUTCFullYear()].join(' ');
 }
 $('.commentLink').live('click', function() {
     $(this).parents('.post').find('.comments').toggleClass('off');
@@ -57,6 +87,7 @@ $('.commentLink').live('click', function() {
 
 var lastLoaded = null;
 var alreadyLoaded = {};
+var previousDate = null;
 
 function loadPosts(type, start) {
     if (start && alreadyLoaded[start]) return;
@@ -72,8 +103,12 @@ function loadPosts(type, start) {
             .find('.body:first').html(post.body).end()
             .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
             .find('.username:first').text(post.user).attr('href', 'user.html#' + post.user).end()
-            .find('.time:first').text(getTime(post.date)).end()
-            .find('.date:first').text(getDate(post.date)).end();
+            .find('.time:first').text(getTime(post.date)).end();
+            var date = getDate(post.date);
+            if (date != previousDate) {
+                el.find('.date:first').html(date).end();
+                previousDate = date;
+            }
             if (post.comments.length) {
                 el.find('.commentLink:first').text(post.comments.length + ' commenti').attr('href','#post-'+post._id);
             }
@@ -84,7 +119,7 @@ function loadPosts(type, start) {
                 .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
                 .find('.username:first').text(comment.user).attr('href', 'user.html#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
-                .find('.date:first').text(getDate(comment.date));
+                .find('.date:first').html(getDate(comment.date));
             });
         });
     });
