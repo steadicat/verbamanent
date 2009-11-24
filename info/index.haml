@@ -1,39 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link href='styles/master.css' rel='stylesheet' type='text/css'>
-    <link href='images/favicon.png' rel='icon' type='image/png'>
-    <meta content='chrome=1' http-equiv='X-UA-Compatible'>
-    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-    <title>Verbamanent: Archivi</title>
-  </head>
-  <body id='main'>
-    <h1 class='header'>Verbamanent</h1>
-    <div class='meta'>
-      <a href='index.html'>home</a>
-      <a>info</a>
-      <a href='scriptavolant.html'>scriptavolant</a>
-    </div>
-    <div id='info'>
-      <div class='pullout'>informazioni</div>
-      <h2>Cos’è Verbamanent?</h2>
-      <p>
+-#! haml -f html5 index.haml > index.html.tmp && mv index.html.tmp index.html
+!!! Strict
+%html
+  %head
+    %link( rel="stylesheet" type="text/css" href="styles/master.css" )
+    -#%link( rel="icon" type="image/png" href="images/favicon.png" )
+    %meta( http-equiv="X-UA-Compatible" content="chrome=1" )
+    %meta( http-equiv="Content-Type" content="text/html; charset=utf-8" )
+
+    %title Verbamanent: Archivi
+
+  %body#main
+
+    %h1.header Verbamanent
+
+    .meta
+      %a( href="/" ) home
+      %a info
+      %a( href="/scriptavolant/" ) scriptavolant
+    #info
+      .pullout informazioni
+
+      %h2 Cos’è Verbamanent?
+      %p
         Verbamanent è un weblog pubblico, cioè un sito dove ognuno può
         segnalare cosa ha trovato di intrigante, interessante,
         divertente, utile, inutile sul web e commentarlo. Sembra
         facile, no?
-      </p>
-      <h2>Perché segnalare e commentare, chi se ne frega?</h2>
-      <p>
+
+      %h2 Perché segnalare e commentare, chi se ne frega?
+      %p
         Segnaliamo perché il web è talmente grande che solo uno sforzo
         collettivo può aiutarci ad esplorarne l’intera
         ricchezza. Commentiamo perché siamo convinti che sia giusto
         porsi sempre in atteggiamento critico nei confronti
         dell’informazione e perché le rotelle ci piacciono di più
         quando girano.
-      </p>
-      <h2>Cosa posso scrivere?</h2>
-      <p>
+
+      %h2 Cosa posso scrivere?
+      %p
         Proprio perché siamo curiosi e ipercritici, ci piace che
         vengano postate (voce del verbo postare: scrivere un post,
         ossia inserire un nuovo intervento) notizie originali, siti
@@ -41,20 +45,19 @@
         discussione stimolante. Per favore, evitate l’autopromozione,
         non vogliamo che Verbamanent diventi un altro veicolo di
         pubblicità non richiesta. Sappiamo che capirete.
-      </p>
-      <h2>Quando posso cominciare?</h2>
-      <p>
+
+      %h2 Quando posso cominciare?
+      %p
         Subito! Creare la tua identità su Verbamanent è un attimo:
         registrati e sei pronto per contribuire. Se ti sei già
         registrato prima ma Verbamanent non si ricorda, fai login.
-      </p>
-      <h2>Ho scritto ma il mio post è stato modificato/cancellato!</h2>
-      <p>
+
+      %h2 Ho scritto ma il mio post è stato modificato/cancellato!
+      %p
         Calma. Per prima cosa accertati di averlo inserito
         correttamente (potrebbe esserci stato qualche problema per cui
         ti invitiamo a scriverci prima di arrabbiarti furiosamente).
-      </p>
-      <p>
+      %p
         Per evitare lotte nella home page preferiamo che vengano
         evitati post troppo lunghi o contenenti effetti speciali. Per
         questo ogni tanto potremmo intervenire sui vostri post se
@@ -64,37 +67,43 @@
         essere più libere ma vi chiediamo ugualmente di usare la
         formattazione con discrezione. Detto questo, basta non
         esagerare e non toccheremo i vostri interventi.
-      </p>
-      <p>
+
+      %p
         In casi veramente eccezionali può succedere che un post venga
         cancellato, ma non lo faremo mai senza un motivo valido. Siamo
         convinti che una totale assenza di moderazione sia alla lunga
         nociva per la comunità.
-      </p>
-      <h2>
+
+      %h2
         Come faccio a
-        <a href='http://www2.dsa.unipr.it/~tambo/presentazioni/alfabetizzazione/sld070.htm'>formattare</a>
+        %a(href ="http://www2.dsa.unipr.it/~tambo/presentazioni/alfabetizzazione/sld070.htm") formattare
         i miei post?
-      </h2>
-      <p>
-        Con l’HTML. Non sai cos’è? Dai una letta&nbsp;<a href='http://www.emmeffe.net/htmlplanet/html/html_04.shtml'>qua</a>.
-      </p>
-      <h2>‘Non mi va bene questa cosa’, ‘Perché non...’, ‘Vi amo!’...</h2>
-      <p>
-        Volete parlare di&nbsp;<em>Verbamanent</em>? Avete domande, suggerimenti,
-        lamentele, richieste, proposte? Ditelo, su&nbsp;<a href='scriptavolant.html'>Scriptavolant</a>, il
-        nostro Rieducational Channel. E per comunicazioni più intime,&nbsp;<a href='mailto:verbamen@verbamanent.org'>scriveteci</a>.
-      </p>
-      <p class='signature'>
-        <a href='user.html#verbosus'>Antonio</a>
-        e&nbsp;<a href='user.html#sja'>Stefano</a>, the hosts
-      </p>
-      <div class='copyright'>
-        <p>Ogni post o commento è proprietà dell’autore.</p>
-        <p>Tutto il resto è Copyright © 2000-2001 Stefano J. Attardi, Antonio Cavedoni.</p>
-      </div>
-    </div>
-    <script src='scripts/jquery.js' type='text/javascript'></script>
-    <script src='scripts/master.js' type='text/javascript'></script>
-  </body>
-</html>
+      %p
+        Con l’HTML. Non sai cos’è? Dai una letta&nbsp;
+        %a( href="http://www.emmeffe.net/htmlplanet/html/html_04.shtml" )<> qua
+        \.
+
+      %h2 ‘Non mi va bene questa cosa’, ‘Perché non...’, ‘Vi amo!’...
+      %p
+        Volete parlare di&nbsp;
+        %em<> Verbamanent
+        ? Avete domande, suggerimenti,
+        lamentele, richieste, proposte? Ditelo, su&nbsp;
+        %a( href="scriptavolant.html" )<> Scriptavolant
+        , il
+        nostro Rieducational Channel. E per comunicazioni più intime,&nbsp;
+        %a( href="mailto:verbamen@verbamanent.org" )<> scriveteci
+        \.
+
+      %p.signature
+        %a( href="user.html#verbosus" ) Antonio
+        e&nbsp;
+        %a( href="user.html#sja" )<> Stefano
+        , the hosts
+
+      .copyright
+        %p Ogni post o commento è proprietà dell’autore.
+        %p Tutto il resto è Copyright © 2000-2003 Stefano J. Attardi, Antonio Cavedoni.
+
+    %script( type="text/javascript" src="/scripts/jquery.js" )
+    %script( type="text/javascript" src="/scripts/master.js" )

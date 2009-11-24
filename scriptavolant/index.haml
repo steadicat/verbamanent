@@ -1,9 +1,9 @@
--#! haml -f html5 scriptavolant.haml > scriptavolant.html.tmp && mv scriptavolant.html.tmp scriptavolant.html
+-#! haml -f html5 index.haml > index.html.tmp && mv index.html.tmp index.html
 !!! Strict
 %html.scriptavolant
   %head
-    %link( rel="stylesheet" type="text/css" href="styles/master.css" )
-    %link( rel="icon" type="image/png" href="images/favicon.png" )
+    %link( rel="stylesheet" type="text/css" href="/styles/master.css" )
+    -#%link( rel="icon" type="image/png" href="images/favicon.png" )
     %meta( http-equiv="X-UA-Compatible" content="chrome=1" )
     %meta( http-equiv="Content-Type" content="text/html; charset=utf-8" )
 
@@ -13,8 +13,8 @@
     %h1.header Scriptavolant
 
     .meta
-      %a( href="index.html" ) home
-      %a( href="info.html" ) info
+      %a( href="/" ) home
+      %a( href="/info/" ) info
       %a scriptavolant
 
     .post.template
@@ -43,5 +43,5 @@
     %h3.loading
       Loading...
 
-    %script( type="text/javascript" src="scripts/jquery.js" )
-    %script( type="text/javascript" src="scripts/master.js" )
+    %script( type="text/javascript" src="/scripts/jquery.js" )
+    %script( type="text/javascript" src="/scripts/master.js" )
