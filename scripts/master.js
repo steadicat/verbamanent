@@ -1,5 +1,5 @@
-var db = 'http://verbamanent.cloudant.com:5984/';
-var allPosts = '_design/ordered/_view/date?callback=?&limit=20';
+var db = 'http://data.verbamanent.org/';
+var allPosts = '_design/ordered/_rewrite/date/';
 
 $.prototype.use = function() {
     return this.clone().removeClass('template').insertBefore(this);
@@ -89,40 +89,42 @@ var lastLoaded = null;
 var alreadyLoaded = {};
 var previousDate = null;
 
-function loadPosts(type, start) {
-    if (start && alreadyLoaded[start]) return;
-    alreadyLoaded[start] = true;
-    $.getJSON(db + type + '/' + allPosts + (start? '&startkey=\"'+start+'%2F"': ''), function(json) {
-        $.each(json.rows, function(i, row) {
-            var post = row.value;
-            lastLoaded = row.key;
+function callback(json) {
+    $.each(json.rows, function(i, row) {
+        var post = row.value;
+        lastLoaded = row.key;
 
-            var el = $('.post.template').use();
-            el
+        var el = $('.post.template').use();
+        el
             .attr('id', 'post-' + post._id)
             .find('.body:first').html(post.body).end()
             .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
             .find('.username:first').text(post.user).attr('href', '/user/#' + post.user).end()
             .find('.time:first').text(getTime(post.date)).end();
-            var date = getDate(post.date);
-            if (date != previousDate) {
-                el.find('.date:first').html(date).end();
-                previousDate = date;
-            }
-            if (post.comments.length) {
-                el.find('.commentLink:first').text(post.comments.length + ' commenti').attr('href','#post-'+post._id);
-            }
-            $.each(post.comments, function(i, comment) {
-                el
+        var date = getDate(post.date);
+        if (date != previousDate) {
+            el.find('.date:first').html(date).end();
+            previousDate = date;
+        }
+        if (post.comments.length) {
+            el.find('.commentLink:first').text(post.comments.length + ' commenti').attr('href','#post-'+post._id);
+        }
+        $.each(post.comments, function(i, comment) {
+            el
                 .find('.comment.template').use()
                 .find('.body:first').html(comment.body).end()
                 .find('.by:first').html(by[Math.floor(Math.random()*by.length)]).end()
                 .find('.username:first').text(comment.user).attr('href', '/user/#' + comment.user).end()
                 .find('.time:first').text(getTime(comment.date)).end()
                 .find('.date:first').html(getDate(comment.date));
-            });
         });
     });
+}
+
+function loadPosts(type, start) {
+    if (start && alreadyLoaded[start]) return;
+    alreadyLoaded[start] = true;
+    $.ajax({ url: db + type + '/' + allPosts + (start? '"' + start + '"' : ''), dataType: 'jsonp', callback: 'callback' });
 };
 
 $(window).scroll(function() {
